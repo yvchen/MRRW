@@ -1,4 +1,5 @@
-# MRRW (Two-Layer Mutually Reinforced Random Walk)
+# MRRW 
+Two-Layer Mutually Reinforced Random Walk
 Yun-Nung (Vivian) Chen, yvchen@cs.cmu.edu
 
 This tool is used to compute the converged scores of nodes in a two-layer graph.
@@ -19,9 +20,9 @@ Each file should have a matrix form as follows (space delimited).
 
 ### Running the program
 
-```python program/twolayer.py layer1-edge-weight layer2-edge-weight layer1to2-edge-weight [--initscore1 layer1-init-score] [--initscore2 layer2-init-score] [-w alpha] [-n N]```
+python program/twolayer.py layer1-edge-weight layer2-edge-weight layer1to2-edge-weight [--initscore1 layer1-init-score] [--initscore2 layer2-init-score] [-w alpha] [-n N]
 
-```python program/twolayer.py example/w1.txt example/w2.txt example/w3.txt```
+python program/twolayer.py example/w1.txt example/w2.txt example/w3.txt
 
 ### Reference
 
