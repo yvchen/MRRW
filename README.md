@@ -24,7 +24,7 @@ Given within-layer and between-layer edge weights, the score for each node refer
 4. -s: flag to indicate whether your input matrices are in the sparse format (default=0).
 
 ### Data format
-#### Input matrix
+##### Input matrix
 Each file should have a dense matrix form as follows (space delimited).
 
 ```0.7 0.2 0.5 ...```
@@ -38,7 +38,7 @@ For a sparse matrix, the format should be as follows (space delimited).
 This refers to a 2x3 matrix and there are 2 nonzero items (first line in the file).
 The items are M(0, 2)=0.1 and M(1, 1)=0.3.
 
-### Output scores
+##### Output scores
 The program outputs the converged score for each node in one line.
 Small examples can be found in ```output/```.
 
