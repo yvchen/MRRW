@@ -8,6 +8,7 @@ Given within-layer and between-layer edge weights, the score for each node refer
 ### Requirements
 1. Python 2.7
 2. Numpy
+3. Scipy
 
 ### Input data
 1. Edge weights for the 1st layer (layer1-edge-weight)
