@@ -1,5 +1,6 @@
 import sys,re,argparse
 import numpy as np
+from operator import itemgetter
 from numpy import linalg as LA
 
 def read_sim_matrix( infile ):
@@ -19,6 +20,19 @@ def check_valid( inMtx ):
 	if np.sum((inMtx<0).astype(np.int)) > 0:
 		return 1
 	return 0
+
+def keep_top( inMtx, N ):
+	row = np.shape(inMtx)[0]
+	outMtx = np.zeros((row, row))
+	for i in range(0, row):
+		sortList = []
+		for j in range(0, row):
+			sortList.append((j, inMtx[i][j]))
+		sorted(sortList, key=itemgetter(1), reverse=True)
+		for k in range(0, N):
+			j, s = sortList[k]
+			outMtx[i][j] = s
+	return outMtx
 
 def check_size( Mtx1, Mtx2, Mtx12 ):
 	row1, col1 = np.shape(Mtx1)
@@ -51,6 +65,10 @@ E_12 = read_sim_matrix(args.betweenweight)
 if check_size(E_11, E_22, E_12):
 	sys.stderr.write("Error: The dimensions do not match.\n")
 	exit()
+
+if args.n != None:
+	E_11 = keep_top(E_11, args.n)
+	E_22 = keep_top(E_22, args.n)
 
 if check_valid(E_11) or check_valid(E_22) or check_valid(E_12):
 	sys.stderr.write("Error: The input weights have negative values.\n")
@@ -85,10 +103,8 @@ former = (1 - args.w) * S1 + args.w * (1 - args.w) * np.dot(L_11, np.dot(L_12, S
 latter = args.w * args.w * np.dot(L_11, np.dot(L_12, np.dot(L_22, L_21)))
 combine = former * np.ones(num1) + latter
 
-#print combine
-
 w, v = LA.eig(combine)
-score1 = abs(v[:,0])
+score1 = abs(v[:, 0])/sum(abs(v[:, 0]))
 score2 = (1 - args.w) * S2 + args.w * np.dot(L_22, np.dot(L_21, S1))
 
 sys.stdout.write("Scores for layer1: ")
