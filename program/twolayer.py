@@ -40,7 +40,7 @@ def keep_top( inMtx, K ):
 		sortList = []
 		for j in range(0, col):
 			sortList.append((j, inMtx[i][j]))
-		sorted(sortList, key=itemgetter(1), reverse=True)
+		sortList = sorted(sortList, key=itemgetter(1), reverse=True)
 		for k in range(0, K):
 			j, s = sortList[k]
 			outMtx[i][j] = s

@@ -32,12 +32,19 @@ You can easily run the testing examples as follows:
 
 ### Reference
 
-Main paper to be cited
+Main papers to be cited
 ```
 @Inproceedings{chen:2015:NAACL,
   author    = {Chen, Yun-Nung and Wang, William Yang and Rudnicky, Alexander I.},
   title     = {Jointly Modeling Inter-Slot Relations by Random Walk on Knowledge Graphs for Unsupervised Spoken Language Understanding},
   booktitle = {Proceedings of NAACL},
-  year      = {2015},
+  year      = {2015}
 }
+@Inproceedings{chen:2012:SLT,
+  author    = {Chen, Yun-Nung and Metze, Florian},
+  title     = {Two-Layer Mutually Reinforced Random Walk for Improved Multi-Party Meeting Summarization},
+  booktitle = {Proceedings of SLT},
+  year      = {2015}
+}
+
 ```
